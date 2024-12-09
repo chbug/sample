@@ -1,0 +1,32 @@
+[package]
+name = "source"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "source"
+path = "src/main.rs"
+
+[dependencies]
+broker_client = {path = "../broker_client"}
+crypto = {path = "../crypto"}
+rpcutil = {path = "../rpcutil"}
+settings = {path = "../settings"}
+sink_client = {path = "../sink_client"}
+source_settings = {path = "../source_settings"}
+storage = {path = "../storage"}
+
+anyhow = "1"
+bytes = "1"
+mockall = "0"
+rusqlite = { version = "0", features = ["bundled"] }
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "tracing"] }
+tonic = { version = "0", features = ["tls"] }
+tracing = "0"
+
+[dev-dependencies]  
+tempfile = "3"
+testcerts = {path = "../testcerts"}
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "tracing", "test-util"] }
